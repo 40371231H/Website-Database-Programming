@@ -21,8 +21,19 @@ MongoClient.connect(url, (error, client) => {
             console.log('資料庫內無名為 student 的 collection');
         } else {
             console.log('資料庫內有名為 student 的 collection');
+            collection.find().toArray((error, docs) => {
+                if (error) {
+                    console.log('查詢 student 資料失敗');
+                    return;
+                }
+                for (let i = 0; i < docs.length; i++) {
+                    console.log(docs[i]);
+                }
+                // 確定動作完畢才可將 client 關閉
+                client.close();
+                console.log('資料庫中斷連線');
+            });
+
         }
     });
-
-    client.close();
 });
