@@ -22,9 +22,9 @@ MongoClient.connect(url, (error, client) => {
         }
 
         var doc = {
-            "學號": "S003",
+            "學號": "S002",
             "班別": "CSX2003",
-            "姓名": "王五",
+            "姓名": "李四",
             "隨機碼": Math.floor(Math.random() * 100 + 1)
         }
 
