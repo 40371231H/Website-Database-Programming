@@ -7,7 +7,7 @@ const url = 'mongodb://localhost:27017';
 const dbName = 'school';
 
 // url : connect url, function(...){...} : callbackfunction
-MongoClient.connect(url, function(err, client) {
+MongoClient.connect(url, (err, client) => {
   assert.equal(null, err);
   console.log("Connected successfully to server");
 
