@@ -1,17 +1,20 @@
 const MongoClient = require('mongodb').MongoClient;
 
-// Connection URL
+// database URL
 const url = 'mongodb://localhost:27017';
 
 // Database Name
 const dbName = 'school';
 
-// Use connect method to connect to the server
-MongoClient.connect(url, function(err, client) {
+// function(...){...} : callbackfunction
+var connectCallback = function(err, client) {
   assert.equal(null, err);
   console.log("Connected successfully to server");
 
   const db = client.db(dbName);
 
   client.close();
-});
+}
+
+// url : connect url
+MongoClient.connect(url, connectCallback);
