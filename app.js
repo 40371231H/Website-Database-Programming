@@ -6,15 +6,12 @@ const url = 'mongodb://localhost:27017';
 // Database Name
 const dbName = 'school';
 
-// function(...){...} : callbackfunction
-var connectCallback = function(err, client) {
+// url : connect url, function(...){...} : callbackfunction
+MongoClient.connect(url, function(err, client) {
   assert.equal(null, err);
   console.log("Connected successfully to server");
 
   const db = client.db(dbName);
 
   client.close();
-}
-
-// url : connect url
-MongoClient.connect(url, connectCallback);
+});
